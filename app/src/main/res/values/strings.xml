@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyYouTubeApplication</string>
+    <string name="youtube_error">播放片源失敗: </string>
 </resources>
