@@ -27,6 +27,14 @@ public class MainActivity extends YouTubeBaseActivity implements YouTubePlayer.O
         WebView webView = findViewById(R.id.web_view);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("https://www.youtube.com/watch?v=YzevNaeUiHc&list=PLadpa_xY6Oo9CewIqsGQyG0PvxQzKgEBX");
+        //        webView.loadDataWithBaseURL(null, "<style>.embed-container { position: relative; padding-bottom:
+        // 56.25%; " +
+        //                "height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container
+        // object, " +
+        //                ".embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; " +
+        //                "}</style><div class='embed-container'><iframe src='https://www.youtube
+        // .com/embed/5qOSGyrIgMo' " +
+        //                "frameborder='0' allowfullscreen></iframe></div>", "text/html", "UTF-8", null);
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
