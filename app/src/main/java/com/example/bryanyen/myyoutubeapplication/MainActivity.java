@@ -2,6 +2,8 @@ package com.example.bryanyen.myyoutubeapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -21,6 +23,17 @@ public class MainActivity extends YouTubeBaseActivity implements YouTubePlayer.O
 
         youTubeView = findViewById(R.id.youtube_view);
         youTubeView.initialize(DeveloperKey.DEVELOPER_KEY, this);
+
+        WebView webView = findViewById(R.id.web_view);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadUrl("https://www.youtube.com/watch?v=YzevNaeUiHc&list=PLadpa_xY6Oo9CewIqsGQyG0PvxQzKgEBX");
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return true;
+            }
+        });
     }
 
     @Override
@@ -39,7 +52,8 @@ public class MainActivity extends YouTubeBaseActivity implements YouTubePlayer.O
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean
             wasRestored) {
         if (!wasRestored) {
-            youTubePlayer.cueVideo("pb-kc6DWIDI");// 凉凉MV https://youtu.be/pb-kc6DWIDI
+            //            youTubePlayer.cueVideo("pb-kc6DWIDI");// 凉凉MV https://youtu.be/pb-kc6DWIDI
+            youTubePlayer.cuePlaylist("PLadpa_xY6Oo9CewIqsGQyG0PvxQzKgEBX");
         }
     }
 
